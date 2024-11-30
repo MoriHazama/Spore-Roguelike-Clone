@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://urv2k5ddp21w"]
+
+[ext_resource type="Texture2D" uid="uid://cxhxgud3oiwma" path="res://Assets/edit1.png" id="1_8mxg3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khxye"]
+atlas = ExtResource("1_8mxg3")
+region = Rect2(20, 19, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrs44"]
+atlas = ExtResource("1_8mxg3")
+region = Rect2(206, 19, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68wew"]
+atlas = ExtResource("1_8mxg3")
+region = Rect2(392, 19, 130, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjube"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khxye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrs44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68wew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sjube")
+frame_progress = 0.702276

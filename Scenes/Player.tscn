@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bosk1hi18y0r5"]
+
+[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_8krjx"]
+[ext_resource type="Texture2D" uid="uid://cxhxgud3oiwma" path="res://Assets/edit1.png" id="2_uqw6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry0xk"]
+atlas = ExtResource("2_uqw6r")
+region = Rect2(10, 0, 168, 172)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_051vd"]
+atlas = ExtResource("2_uqw6r")
+region = Rect2(196, 0, 168, 172)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eln4m"]
+atlas = ExtResource("2_uqw6r")
+region = Rect2(382, 0, 168, 172)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k22xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry0xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_051vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eln4m")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldak2"]
+radius = 63.002
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_8krjx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k22xa")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.0473552
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_ldak2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_ldak2")
